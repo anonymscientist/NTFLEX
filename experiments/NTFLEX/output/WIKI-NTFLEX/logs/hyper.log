@@ -1,0 +1,1 @@
+{"hyper": {"center_reg": 0.02, "learning_rate": 0.0001, "batch_size": 128, "hidden_dim": 800, "gamma": 15.0}}

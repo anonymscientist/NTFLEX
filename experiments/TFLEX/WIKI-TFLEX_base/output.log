@@ -1,0 +1,1852 @@
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:893) - {'self': MyExperiment(OutputSchema(/home/pabbasi/pytorch_test/NTFLEXo/NTFLEX/TFLEX/output/WIKI-TFLEX_base), DistributeSchema(gpu=-1 in None)), 'output': OutputSchema(/home/pabbasi/pytorch_test/NTFLEXo/NTFLEX/TFLEX/output/WIKI-TFLEX_base), 'data': TemporalComplexQueryData(dataset=WIKI(/home/pabbasi/pytorch_test/NTFLEXo/NTFLEX/TFLEX/data/WIKI), cache_path=<ComplexTemporalQueryData.ComplexTemporalQueryDatasetCachePath object at 0x772ca654a820>), 'model': TFLEX(
+  (entity_feature_embedding): Embedding(16470, 800)
+  (timestamp_feature_embedding): Embedding(2026, 800)
+  (relation_feature_embedding): Embedding(124, 800)
+  (relation_logic_embedding): Embedding(124, 800)
+  (relation_time_feature_embedding): Embedding(124, 800)
+  (relation_time_logic_embedding): Embedding(124, 800)
+  (entity_projection): EntityProjection(
+    (dropout): Dropout(p=0.1, inplace=False)
+    (layer1): Linear(in_features=3200, out_features=800, bias=True)
+    (layer0): Linear(in_features=800, out_features=3200, bias=True)
+    (layer2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_intersection): EntityIntersection(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_union): EntityUnion(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_negation): EntityNegation(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_projection): TimeProjection(
+    (dropout): Dropout(p=0.1, inplace=False)
+    (layer1): Linear(in_features=3200, out_features=800, bias=True)
+    (layer0): Linear(in_features=800, out_features=3200, bias=True)
+    (layer2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_intersection): TemporalIntersection(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_union): TemporalUnion(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_negation): TemporalNegation(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_before): TemporalBefore()
+  (time_after): TemporalAfter()
+  (time_next): TemporalNext()
+), 'start_step': 0, 'max_steps': 100001, 'every_test_step': 5000, 'every_valid_step': 5000, 'batch_size': 128, 'test_batch_size': 8, 'negative_sample_size': 128, 'train_device': 'cuda:0', 'test_device': 'cuda:0', 'resume': False, 'resume_by_score': 0.0, 'lr': 0.0001, 'cpu_num': 1, 'hidden_dim': 800, 'input_dropout': 0.1, 'gamma': 15.0, 'center_reg': 0.02, 'train_tasks': 'Pe,Pe2,e2i,Pt,aPt,bPt,t2i', 'train_all': False, 'eval_tasks': 'Pe,Pe2,e2i,Pt,aPt,bPt,t2i,e2u,t2u', 'eval_all': False, '__class__': <class '__main__.MyExperiment'>}
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:899) - ---------------------------------------------------------------------------------------------
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:900) - # entity: 16470
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:901) - # relation: 62
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:902) - # timestamp: 2026
+[03-12 21:45:26] p92386 (train_TCQE_TFLEX.py:903) - # max steps: 100001
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:932) - Training info:
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - Pe: 113594
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - Pe2: 5000
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - e2i: 5000
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - Pt: 37317
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - aPt: 5000
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - bPt: 5000
+[03-12 21:45:30] p92386 (train_TCQE_TFLEX.py:934) - t2i: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:975) - Validation info:
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - Pe: 17695
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - Pe2: 5752
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - e2i: 5253
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - Pt: 9548
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - aPt: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - bPt: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - t2i: 9789
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - e2u: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:977) - t2u: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:979) - Test info:
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - Pe: 17719
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - Pe2: 6236
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - e2i: 5417
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - Pt: 9706
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - aPt: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - bPt: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - t2i: 9841
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - e2u: 5000
+[03-12 21:45:38] p92386 (train_TCQE_TFLEX.py:981) - t2u: 5000
+[03-12 21:45:40] p92386 (Experiment.py:50) - -----------------Model Structure------------------
+[03-12 21:45:40] p92386 (Experiment.py:51) - TFLEX(
+  (entity_feature_embedding): Embedding(16470, 800)
+  (timestamp_feature_embedding): Embedding(2026, 800)
+  (relation_feature_embedding): Embedding(124, 800)
+  (relation_logic_embedding): Embedding(124, 800)
+  (relation_time_feature_embedding): Embedding(124, 800)
+  (relation_time_logic_embedding): Embedding(124, 800)
+  (entity_projection): EntityProjection(
+    (dropout): Dropout(p=0.1, inplace=False)
+    (layer1): Linear(in_features=3200, out_features=800, bias=True)
+    (layer0): Linear(in_features=800, out_features=3200, bias=True)
+    (layer2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_intersection): EntityIntersection(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_union): EntityUnion(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (entity_negation): EntityNegation(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_projection): TimeProjection(
+    (dropout): Dropout(p=0.1, inplace=False)
+    (layer1): Linear(in_features=3200, out_features=800, bias=True)
+    (layer0): Linear(in_features=800, out_features=3200, bias=True)
+    (layer2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_intersection): TemporalIntersection(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_union): TemporalUnion(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+    (time_feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (time_feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_negation): TemporalNegation(
+    (feature_layer_1): Linear(in_features=1600, out_features=800, bias=True)
+    (feature_layer_2): Linear(in_features=800, out_features=800, bias=True)
+  )
+  (time_before): TemporalBefore()
+  (time_after): TemporalAfter()
+  (time_next): TemporalNext()
+)
+[03-12 21:45:40] p92386 (Experiment.py:55) - ---------------Trainable parameters---------------
+[03-12 21:45:40] p92386 (Experiment.py:63) - modulus: 1.0B
+entity_feature_embedding.weight: 12.6MiB
+timestamp_feature_embedding.weight: 1.5MiB
+relation_feature_embedding.weight: 96.9KiB
+relation_logic_embedding.weight: 96.9KiB
+relation_time_feature_embedding.weight: 96.9KiB
+relation_time_logic_embedding.weight: 96.9KiB
+entity_projection.layer1.weight: 2.4MiB
+entity_projection.layer1.bias: 800.0B
+entity_projection.layer0.weight: 2.4MiB
+entity_projection.layer0.bias: 3.1KiB
+entity_projection.layer2.weight: 625.0KiB
+entity_projection.layer2.bias: 800.0B
+entity_intersection.feature_layer_1.weight: 1.2MiB
+entity_intersection.feature_layer_1.bias: 800.0B
+entity_intersection.feature_layer_2.weight: 625.0KiB
+entity_intersection.feature_layer_2.bias: 800.0B
+entity_intersection.time_feature_layer_1.weight: 1.2MiB
+entity_intersection.time_feature_layer_1.bias: 800.0B
+entity_intersection.time_feature_layer_2.weight: 625.0KiB
+entity_intersection.time_feature_layer_2.bias: 800.0B
+entity_union.feature_layer_1.weight: 1.2MiB
+entity_union.feature_layer_1.bias: 800.0B
+entity_union.feature_layer_2.weight: 625.0KiB
+entity_union.feature_layer_2.bias: 800.0B
+entity_union.time_feature_layer_1.weight: 1.2MiB
+entity_union.time_feature_layer_1.bias: 800.0B
+entity_union.time_feature_layer_2.weight: 625.0KiB
+entity_union.time_feature_layer_2.bias: 800.0B
+entity_negation.feature_layer_1.weight: 1.2MiB
+entity_negation.feature_layer_1.bias: 800.0B
+entity_negation.feature_layer_2.weight: 625.0KiB
+entity_negation.feature_layer_2.bias: 800.0B
+time_projection.layer1.weight: 2.4MiB
+time_projection.layer1.bias: 800.0B
+time_projection.layer0.weight: 2.4MiB
+time_projection.layer0.bias: 3.1KiB
+time_projection.layer2.weight: 625.0KiB
+time_projection.layer2.bias: 800.0B
+time_intersection.feature_layer_1.weight: 1.2MiB
+time_intersection.feature_layer_1.bias: 800.0B
+time_intersection.feature_layer_2.weight: 625.0KiB
+time_intersection.feature_layer_2.bias: 800.0B
+time_intersection.time_feature_layer_1.weight: 1.2MiB
+time_intersection.time_feature_layer_1.bias: 800.0B
+time_intersection.time_feature_layer_2.weight: 625.0KiB
+time_intersection.time_feature_layer_2.bias: 800.0B
+time_union.feature_layer_1.weight: 1.2MiB
+time_union.feature_layer_1.bias: 800.0B
+time_union.feature_layer_2.weight: 625.0KiB
+time_union.feature_layer_2.bias: 800.0B
+time_union.time_feature_layer_1.weight: 1.2MiB
+time_union.time_feature_layer_1.bias: 800.0B
+time_union.time_feature_layer_2.weight: 625.0KiB
+time_union.time_feature_layer_2.bias: 800.0B
+time_negation.feature_layer_1.weight: 1.2MiB
+time_negation.feature_layer_1.bias: 800.0B
+time_negation.feature_layer_2.weight: 625.0KiB
+time_negation.feature_layer_2.bias: 800.0B
+[03-12 21:45:40] p92386 (Experiment.py:64) - Total Parameters: 43.8MiB (45939201)
+[03-12 21:45:40] p92386 (Experiment.py:65) - --------------------------------------------------
+[03-12 21:45:40] p92386 (train_TCQE_TFLEX.py:1025) - center_reg = 0.02
+[03-12 21:45:40] p92386 (train_TCQE_TFLEX.py:1025) - learning_rate = 0.0001
+[03-12 21:45:40] p92386 (train_TCQE_TFLEX.py:1025) - batch_size = 128
+[03-12 21:45:40] p92386 (train_TCQE_TFLEX.py:1025) - hidden_dim = 800
+[03-12 21:45:40] p92386 (train_TCQE_TFLEX.py:1025) - gamma = 15.0
+[03-12 21:49:53] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 5000):
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.19%  97.58%  95.00%  98.98%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 23.86%  42.51%   5.24%  23.83%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 16.87%  34.59%   2.61%  13.40%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 26.33%  47.11%   4.61%  27.26%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 36.72%  55.81%   9.61%  44.74%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.66%  141.90%  159.83%  103.88%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 76.64%  34.71%  99.84%  99.78%  72.21%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 70.35%  21.63%  99.78%  99.64%  60.33%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 78.78%  34.97%  99.90%  99.94%  80.32%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 90.83%  69.06%  99.96%  99.96%  94.35%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 91.85%  91.85%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     :  4.67%   4.67%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  :  2.08%   2.08%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  :  4.12%   4.12%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 :  8.84%   8.84%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 91.39%  91.39%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 48.14%  48.14%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 41.56%  41.56%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 48.48%  48.48%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 62.66%  62.66%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 38.33%
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.3833 > best score=0.0000
+[03-12 21:51:15] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.3833
+[03-12 21:51:16] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 5000):
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.31%  97.42%  97.87%  99.63%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 26.83%  41.63%   6.74%  32.13%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 18.98%  33.72%   3.22%  19.99%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 29.73%  46.17%   5.97%  37.07%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 41.58%  55.07%  12.89%  56.77%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.65%  141.90%  159.82%  232.83%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 80.26%  33.79%  99.84%  99.77%  87.65%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 75.51%  20.66%  99.76%  99.62%  81.98%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.36%  33.80%  99.92%  99.90%  91.80%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 91.55%  68.46%  99.96%  99.96%  97.81%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 95.40%  95.40%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     :  6.05%   6.05%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  :  2.88%   2.88%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  :  5.40%   5.40%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 11.64%  11.64%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.05%  98.05%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.22%  59.22%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 52.14%  52.14%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.14%  60.14%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 75.68%  75.68%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:52:40] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 43.09%
+[03-12 21:56:52] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 10000):
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.17%  98.30%  96.53%  99.69%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 34.95%  53.39%   9.92%  41.55%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 26.27%  45.18%   5.16%  28.46%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 37.60%  57.06%   9.25%  46.49%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 53.19%  68.83%  19.38%  71.37%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.72%  141.90%  159.83%  103.92%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 79.03%  36.26%  100.00%  99.94%  79.92%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 73.00%  21.24%  100.00%  99.90%  70.86%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 80.84%  36.81%  100.00%  99.98%  86.55%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.48%  80.61%  100.00%  100.00%  97.30%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 95.01%  95.01%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 13.25%  13.25%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  :  7.10%   7.10%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 13.50%  13.50%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 25.74%  25.74%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.82%  98.82%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.25%  52.25%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.04%  44.04%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 52.82%  52.82%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.66%  72.66%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 44.87%
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.4487 > best score=0.3833
+[03-12 21:58:14] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.4487
+[03-12 21:58:15] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 10000):
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.88%  98.05%  98.68%  99.92%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.58%  52.34%  13.70%  52.71%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.05%  44.05%   7.14%  38.97%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.37%  56.00%  13.95%  60.16%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.67%  68.02%  26.41%  81.59%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.57%  99.72%  141.90%  159.82%  232.85%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.31%  35.52%  100.00%  99.93%  93.78%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 77.83%  20.71%  100.00%  99.88%  90.72%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 82.99%  35.78%  100.00%  100.00%  96.17%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.60%  79.46%  100.00%  100.00%  98.93%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.45%  97.45%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 15.99%  15.99%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  :  8.38%   8.38%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 16.82%  16.82%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 30.86%  30.86%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.62%  100.62%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 63.15%  63.15%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 54.90%  54.90%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 64.54%  64.54%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 84.14%  84.14%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 21:59:39] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 50.26%
+[03-12 22:03:52] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 15000):
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.51%  98.59%  97.16%  99.78%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.32%  59.07%  13.78%  48.11%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 31.00%  49.90%   7.61%  35.48%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.71%  63.50%  14.43%  53.21%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 59.95%  76.90%  25.66%  77.29%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.72%  141.90%  159.83%  103.93%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 79.61%  36.74%  100.00%  99.89%  81.80%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 73.51%  20.48%  100.00%  99.82%  73.76%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.30%  38.24%  100.00%  99.98%  86.99%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 95.35%  83.53%  100.00%  100.00%  97.86%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 96.38%  96.38%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 20.87%  20.87%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 13.02%  13.02%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 21.96%  21.96%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 38.06%  38.06%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.69%  99.69%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.77%  52.77%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.92%  42.92%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 54.62%  54.62%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 76.48%  76.48%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 48.39%
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.4839 > best score=0.4487
+[03-12 22:05:15] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.4839
+[03-12 22:05:16] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 15000):
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.08%  98.29%  99.00%  99.95%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 45.56%  58.30%  18.57%  59.79%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 35.58%  49.04%  10.49%  47.20%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 49.72%  62.93%  19.84%  66.38%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 65.84%  76.14%  34.91%  86.47%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.58%  99.73%  141.90%  159.82%  232.86%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.97%  36.34%  100.00%  99.88%  95.65%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 78.35%  19.95%  100.00%  99.80%  93.65%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 83.74%  37.94%  100.00%  99.96%  97.05%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 95.59%  83.05%  100.00%  100.00%  99.31%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.38%  98.38%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 24.82%  24.82%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 15.52%  15.52%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 27.18%  27.18%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 43.94%  43.94%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.85%  100.85%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 64.12%  64.12%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 54.80%  54.80%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.70%  66.70%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.90%  86.90%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:06:40] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 54.36%
+[03-12 22:10:53] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 20000):
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.75%  98.79%  97.61%  99.86%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 44.31%  62.29%  17.56%  53.08%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 34.03%  52.31%  10.57%  39.22%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 48.57%  67.89%  18.08%  59.74%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 64.97%  81.73%  31.73%  81.46%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.73%  141.90%  159.83%  103.94%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 80.69%  39.41%  100.00%  99.70%  83.63%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 74.60%  22.54%  100.00%  99.54%  76.33%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 82.59%  42.17%  100.00%  99.88%  88.32%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 96.17%  86.61%  100.00%  99.98%  98.07%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.04%  97.04%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 26.78%  26.78%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 17.68%  17.68%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 29.48%  29.48%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 45.60%  45.60%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.76%  99.76%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 53.64%  53.64%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.98%  42.98%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 55.66%  55.66%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.86%  79.86%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 51.35%
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5135 > best score=0.4839
+[03-12 22:12:15] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5135
+[03-12 22:12:16] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 20000):
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.24%  98.51%  99.22%  99.98%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 50.20%  61.55%  24.13%  64.92%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 39.51%  51.52%  15.33%  51.69%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 55.44%  67.13%  26.03%  73.18%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 70.93%  81.23%  41.98%  89.57%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.58%  99.74%  141.90%  159.82%  232.86%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 83.98%  39.39%  100.00%  99.70%  96.82%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 79.40%  22.48%  100.00%  99.52%  95.60%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 84.95%  42.36%  100.00%  99.88%  97.58%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 96.42%  86.44%  100.00%  99.98%  99.25%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.72%  98.72%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 31.39%  31.39%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 21.16%  21.16%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 34.42%  34.42%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 53.16%  53.16%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.88%  100.88%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 65.25%  65.25%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 55.68%  55.68%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 67.90%  67.90%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 89.46%  89.46%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:13:39] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 57.71%
+[03-12 22:17:52] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 25000):
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.85%  98.87%  97.85%  99.85%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.55%  64.60%  19.83%  55.22%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.53%  54.33%  12.52%  42.74%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.19%  70.85%  21.24%  61.47%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.74%  84.52%  33.74%  81.97%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.36%  99.76%  141.90%  159.83%  103.94%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 80.96%  40.18%  100.00%  99.76%  83.90%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 74.77%  22.64%  100.00%  99.60%  76.82%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 83.09%  44.16%  100.00%  99.92%  88.28%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 96.63%  88.26%  100.00%  100.00%  98.25%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.35%  97.35%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 30.30%  30.30%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 21.20%  21.20%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 33.06%  33.06%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 49.14%  49.14%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.76%  99.76%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.86%  52.86%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 41.68%  41.68%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 55.28%  55.28%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.24%  79.24%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 52.67%
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5267 > best score=0.5135
+[03-12 22:19:15] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5267
+[03-12 22:19:16] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 25000):
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.30%  98.59%  99.33%  99.98%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.86%  64.22%  26.41%  67.96%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.63%  54.00%  17.11%  56.78%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 57.84%  70.35%  28.32%  74.86%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.06%  84.05%  45.38%  89.74%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.59%  99.76%  141.90%  159.82%  232.86%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 84.13%  39.97%  100.00%  99.75%  96.80%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 79.42%  22.76%  100.00%  99.56%  95.35%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.21%  43.12%  100.00%  99.94%  97.79%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 96.78%  87.60%  100.00%  99.98%  99.55%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.87%  98.87%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 35.39%  35.39%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 24.90%  24.90%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 39.24%  39.24%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 57.04%  57.04%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.89%  100.89%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 65.82%  65.82%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 55.84%  55.84%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 69.32%  69.32%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 89.42%  89.42%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:20:40] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.55%
+[03-12 22:24:52] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 30000):
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.92%  98.93%  97.94%  99.89%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 48.33%  66.16%  21.20%  57.61%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 38.47%  55.81%  13.77%  45.84%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 52.90%  72.76%  22.43%  63.51%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 68.23%  85.77%  36.28%  82.64%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.36%  99.76%  141.90%  159.83%  103.94%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 81.69%  42.02%  100.00%  99.70%  85.04%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 75.64%  24.46%  100.00%  99.50%  78.62%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 83.85%  46.32%  100.00%  99.94%  89.14%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.05%  89.82%  100.00%  99.98%  98.41%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.53%  97.53%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 33.75%  33.75%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 24.66%  24.66%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 37.48%  37.48%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 52.02%  52.02%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.78%  99.78%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.66%  54.66%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 43.48%  43.48%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 57.88%  57.88%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 81.60%  81.60%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 54.61%
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5461 > best score=0.5267
+[03-12 22:26:15] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5461
+[03-12 22:26:16] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 30000):
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.35%  98.67%  99.39%  99.99%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.80%  65.76%  28.29%  70.35%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.76%  55.46%  18.79%  60.03%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.69%  72.08%  30.44%  76.56%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 74.86%  85.72%  48.09%  90.77%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.59%  99.76%  141.90%  159.82%  232.86%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 84.52%  41.05%  100.00%  99.62%  97.42%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 79.76%  23.32%  100.00%  99.36%  96.35%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.81%  45.12%  100.00%  99.94%  98.17%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.09%  88.88%  100.00%  100.00%  99.48%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.98%  98.98%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.35%  39.35%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 29.12%  29.12%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.36%  43.36%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 59.80%  59.80%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.91%  100.91%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 67.26%  67.26%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 57.12%  57.12%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 71.70%  71.70%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 91.00%  91.00%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:27:40] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 61.48%
+[03-12 22:31:56] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 35000):
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.88%  98.95%  97.79%  99.91%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 49.70%  66.95%  23.42%  58.73%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 39.06%  56.30%  15.42%  45.46%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 54.88%  74.02%  25.07%  65.56%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 70.47%  86.71%  39.46%  85.23%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.36%  99.75%  141.90%  159.83%  103.94%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 81.78%  42.86%  99.99%  99.88%  84.40%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 75.69%  25.24%  99.98%  99.80%  77.73%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 83.98%  47.45%  100.00%  99.92%  88.56%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.25%  90.26%  100.00%  100.00%  98.75%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.68%  97.68%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 35.21%  35.21%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 25.74%  25.74%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 39.16%  39.16%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 53.86%  53.86%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.79%  99.79%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.35%  54.35%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.86%  42.86%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 58.22%  58.22%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 81.42%  81.42%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 55.26%
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5526 > best score=0.5461
+[03-12 22:33:18] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5526
+[03-12 22:33:19] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 35000):
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.36%  98.69%  99.39%  100.00%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 56.59%  66.66%  31.98%  71.12%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 46.07%  56.14%  22.31%  59.76%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 62.02%  73.45%  34.38%  78.22%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 76.84%  86.81%  51.75%  91.95%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.59%  99.78%  141.90%  159.82%  232.86%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 84.78%  41.70%  100.00%  99.87%  97.55%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.07%  24.02%  100.00%  99.76%  96.48%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.08%  46.12%  100.00%  99.96%  98.25%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.34%  89.62%  100.00%  100.00%  99.73%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.11%  99.11%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 41.40%  41.40%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 31.04%  31.04%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 45.50%  45.50%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 62.58%  62.58%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.91%  100.91%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 67.12%  67.12%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 56.52%  56.52%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 71.88%  71.88%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 91.38%  91.38%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:34:43] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 62.47%
+[03-12 22:38:57] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 40000):
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.92%  98.95%  97.92%  99.89%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 51.02%  67.82%  23.48%  61.76%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 40.65%  57.15%  15.35%  49.44%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 56.22%  75.05%  25.26%  68.36%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 71.00%  87.89%  39.88%  85.23%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.74%  141.90%  159.83%  103.94%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 81.91%  42.99%  99.98%  99.49%  85.20%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 75.68%  24.88%  99.96%  99.22%  78.65%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 84.32%  48.19%  100.00%  99.72%  89.39%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.35%  90.75%  100.00%  99.98%  98.68%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.86%  97.86%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 36.59%  36.59%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 27.22%  27.22%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 40.62%  40.62%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 55.24%  55.24%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.81%  99.81%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 55.75%  55.75%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.26%  44.26%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.04%  59.04%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 83.82%  83.82%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 56.32%
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5632 > best score=0.5526
+[03-12 22:40:19] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5632
+[03-12 22:40:20] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 40000):
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.38%  98.73%  99.41%  100.00%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 58.38%  67.54%  32.01%  75.59%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 48.44%  56.83%  22.24%  66.25%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 63.69%  74.98%  34.54%  81.54%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 77.34%  87.64%  52.18%  92.21%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.59%  99.76%  141.90%  159.82%  232.86%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 84.82%  42.06%  100.00%  99.52%  97.69%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 79.99%  23.92%  100.00%  99.30%  96.72%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.29%  47.15%  100.00%  99.68%  98.32%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.33%  89.78%  100.00%  99.96%  99.59%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.16%  99.16%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 42.86%  42.86%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 32.42%  32.42%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 47.42%  47.42%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 64.18%  64.18%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.92%  100.92%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 68.01%  68.01%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 57.28%  57.28%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 72.88%  72.88%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 92.30%  92.30%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:41:45] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 63.52%
+[03-12 22:46:01] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 45000):
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.98%  99.02%  97.99%  99.91%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.12%  68.25%  24.03%  64.07%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.14%  57.23%  15.82%  53.38%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 57.33%  76.15%  26.06%  69.79%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 71.42%  88.53%  40.30%  85.42%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.71%  141.90%  159.83%  103.95%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.31%  43.85%  99.97%  99.72%  85.71%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.18%  25.84%  99.94%  99.50%  79.45%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 84.81%  49.87%  100.00%  99.96%  89.42%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.36%  90.52%  100.00%  100.00%  98.92%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.88%  97.88%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 37.72%  37.72%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 28.12%  28.12%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 41.80%  41.80%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 56.96%  56.96%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.82%  99.82%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.92%  54.92%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.76%  42.76%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.48%  59.48%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 83.18%  83.18%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 56.77%
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5677 > best score=0.5632
+[03-12 22:47:23] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5677
+[03-12 22:47:24] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 45000):
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.40%  98.79%  99.41%  100.00%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.22%  68.04%  32.43%  77.18%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 49.53%  57.18%  22.47%  68.95%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 64.20%  75.50%  35.26%  81.83%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 77.71%  88.05%  52.65%  92.43%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.58%  99.75%  141.90%  159.82%  232.87%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.15%  42.93%  99.99%  99.80%  97.90%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.38%  24.95%  99.98%  99.66%  96.93%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.75%  48.51%  100.00%  99.92%  98.57%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.40%  89.85%  100.00%  100.00%  99.75%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.23%  99.23%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 44.26%  44.26%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 33.76%  33.76%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 48.92%  48.92%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 65.40%  65.40%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.93%  100.93%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 68.07%  68.07%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 57.28%  57.28%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 73.36%  73.36%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 92.30%  92.30%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:48:48] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 64.17%
+[03-12 22:53:01] p92386 (train_TCQE_TFLEX.py:1054) - Change learning_rate to 0.000020 at step 49999
+[03-12 22:53:01] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 50000):
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.99%  99.01%  98.09%  99.88%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 52.92%  68.52%  25.03%  65.22%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 42.94%  57.50%  16.83%  54.48%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 58.28%  76.39%  27.00%  71.46%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.12%  88.56%  41.34%  86.45%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.35%  99.72%  141.90%  159.83%  103.95%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.25%  44.10%  99.98%  99.42%  85.52%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 75.86%  25.31%  99.96%  99.16%  79.00%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.15%  51.13%  100.00%  99.62%  89.85%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.45%  91.06%  100.00%  99.88%  98.88%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.84%  97.84%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 38.62%  38.62%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 29.14%  29.14%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.06%  43.06%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 57.14%  57.14%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.85%  99.85%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.68%  54.68%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 41.68%  41.68%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.80%  59.80%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 84.76%  84.76%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 57.12%
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5712 > best score=0.5677
+[03-12 22:54:24] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5712
+[03-12 22:54:25] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 50000):
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.75%  99.47%  100.00%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 60.08%  68.44%  33.58%  78.22%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 50.54%  57.47%  23.72%  70.43%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 65.27%  76.30%  36.40%  83.11%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 78.32%  88.47%  53.53%  92.97%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.58%  99.73%  141.90%  159.82%  232.87%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.14%  43.14%  99.98%  99.46%  97.98%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.13%  24.27%  99.96%  99.22%  97.06%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.23%  50.63%  100.00%  99.64%  98.65%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.55%  90.48%  100.00%  99.92%  99.79%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.20%  99.20%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 45.03%  45.03%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 34.54%  34.54%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 49.82%  49.82%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.14%  66.14%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.94%  100.94%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 68.74%  68.74%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 57.42%  57.42%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 75.12%  75.12%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.64%  93.64%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 22:55:49] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 64.75%
+[03-12 23:00:05] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 55000):
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.97%  99.02%  98.00%  99.89%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 53.75%  68.94%  26.06%  66.24%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 43.85%  57.67%  17.75%  56.12%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.05%  77.44%  27.99%  71.71%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.82%  89.17%  42.45%  86.83%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.34%  99.69%  141.90%  159.83%  103.95%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.60%  45.00%  99.92%  99.40%  86.09%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.24%  25.98%  99.86%  99.08%  80.03%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.63%  53.05%  99.98%  99.68%  89.80%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.54%  91.28%  100.00%  99.90%  98.99%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.07%  39.07%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 29.38%  29.38%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.66%  43.66%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 57.60%  57.60%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.86%  99.86%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 57.03%  57.03%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.18%  44.18%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 62.48%  62.48%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.46%  86.46%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 58.11%
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5811 > best score=0.5712
+[03-12 23:01:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5811
+[03-12 23:01:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 55000):
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.77%  99.47%  100.00%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 60.75%  68.66%  34.71%  78.90%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.26%  57.46%  24.92%  71.40%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.03%  76.92%  37.60%  83.57%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 78.97%  88.92%  54.76%  93.23%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.58%  99.72%  141.90%  159.82%  232.87%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.52%  44.39%  99.92%  99.52%  98.25%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.54%  25.55%  99.86%  99.24%  97.49%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.69%  52.32%  100.00%  99.72%  98.74%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.62%  90.76%  100.00%  99.94%  99.78%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.25%  99.25%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 45.87%  45.87%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 35.48%  35.48%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 50.94%  50.94%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.06%  66.06%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.95%  100.95%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 71.28%  71.28%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 60.38%  60.38%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 77.70%  77.70%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.22%  94.22%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:02:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 65.86%
+[03-12 23:07:07] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 60000):
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.97%  99.00%  98.02%  99.89%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 53.82%  69.02%  25.95%  66.47%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 43.89%  57.71%  17.73%  56.23%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.21%  77.64%  28.01%  71.98%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.70%  89.19%  42.05%  86.85%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.34%  99.66%  141.90%  159.83%  103.95%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.62%  45.37%  99.88%  99.13%  86.10%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.17%  26.25%  99.80%  98.72%  79.91%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.91%  54.23%  99.96%  99.44%  89.99%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.52%  91.31%  100.00%  99.84%  98.94%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.27%  39.27%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 29.62%  29.62%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 43.88%  43.88%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 57.48%  57.48%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.85%  99.85%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 57.28%  57.28%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.14%  44.14%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 64.08%  64.08%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.50%  86.50%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 58.25%
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5825 > best score=0.5811
+[03-12 23:08:29] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5825
+[03-12 23:08:30] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 60000):
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.77%  99.46%  100.01%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 60.87%  68.75%  34.74%  79.13%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.36%  57.45%  24.95%  71.66%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.07%  77.11%  37.41%  83.70%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.09%  88.98%  55.00%  93.28%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.57%  99.71%  141.90%  159.82%  232.87%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.42%  44.40%  99.84%  99.17%  98.27%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.28%  25.19%  99.72%  98.76%  97.45%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.80%  52.90%  99.96%  99.50%  98.83%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.57%  90.59%  100.00%  99.88%  99.80%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.24%  99.24%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.08%  46.08%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 35.72%  35.72%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 50.88%  50.88%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.46%  66.46%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.95%  100.95%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 71.72%  71.72%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 60.88%  60.88%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 78.56%  78.56%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.28%  94.28%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:09:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.02%
+[03-12 23:14:06] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 65000):
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.97%  99.01%  98.01%  99.88%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 53.95%  69.04%  26.06%  66.74%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.01%  57.61%  17.82%  56.60%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.43%  77.65%  28.03%  72.63%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.78%  89.27%  42.19%  86.88%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.33%  99.64%  141.90%  159.83%  103.95%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.55%  45.20%  99.88%  98.98%  86.16%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.06%  25.98%  99.80%  98.52%  79.93%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 85.90%  54.12%  99.94%  99.26%  90.30%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.49%  91.06%  100.00%  99.86%  99.06%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.90%  97.90%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.49%  39.49%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 29.92%  29.92%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.16%  44.16%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 57.88%  57.88%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.80%  99.80%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 57.37%  57.37%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.42%  44.42%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 63.74%  63.74%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 85.64%  85.64%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 58.34%
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5834 > best score=0.5825
+[03-12 23:15:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5834
+[03-12 23:15:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 65000):
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.42%  98.79%  99.46%  100.00%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.07%  68.81%  34.96%  79.44%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.48%  57.50%  25.05%  71.90%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.48%  77.27%  37.97%  84.20%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.12%  88.97%  55.18%  93.21%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.57%  99.68%  141.90%  159.82%  232.87%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.46%  44.55%  99.89%  99.11%  98.30%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.39%  25.60%  99.82%  98.66%  97.49%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.86%  53.08%  99.96%  99.46%  98.93%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.51%  90.43%  100.00%  99.84%  99.79%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.25%  99.25%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.33%  46.33%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 35.94%  35.94%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.30%  51.30%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.76%  66.76%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.94%  100.94%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 72.12%  72.12%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 61.50%  61.50%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 79.16%  79.16%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.06%  94.06%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:16:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.25%
+[03-12 23:21:05] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 70000):
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.96%  99.01%  97.97%  99.88%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.31%  69.18%  26.32%  67.43%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.48%  57.78%  18.08%  57.59%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.64%  77.89%  28.03%  73.01%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.94%  89.30%  42.68%  86.83%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.33%  99.63%  141.90%  159.83%  103.95%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.75%  45.75%  99.78%  99.18%  86.28%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.32%  26.62%  99.64%  98.78%  80.25%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.12%  55.01%  99.90%  99.52%  90.06%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.49%  91.16%  100.00%  99.84%  98.97%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.91%  97.91%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.76%  39.76%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.24%  30.24%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.46%  44.46%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.14%  58.14%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.78%  99.78%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 58.14%  58.14%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 45.30%  45.30%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 64.92%  64.92%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 85.78%  85.78%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 58.74%
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5874 > best score=0.5834
+[03-12 23:22:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5874
+[03-12 23:22:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 70000):
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.42%  98.79%  99.46%  100.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.31%  68.90%  35.38%  79.66%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.81%  57.54%  25.50%  72.38%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.86%  77.47%  38.87%  84.25%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.24%  89.09%  55.45%  93.17%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.56%  99.67%  141.90%  159.82%  232.87%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.41%  44.45%  99.78%  99.11%  98.30%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.27%  25.27%  99.64%  98.66%  97.49%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.92%  53.38%  99.94%  99.46%  98.89%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.54%  90.50%  100.00%  99.86%  99.79%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.26%  99.26%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.54%  46.54%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.38%  36.38%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.14%  51.14%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.74%  66.74%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.94%  100.94%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 72.00%  72.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 61.24%  61.24%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 79.46%  79.46%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.90%  93.90%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:23:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.32%
+[03-12 23:28:06] p92386 (train_TCQE_TFLEX.py:1054) - Change learning_rate to 0.000004 at step 74999
+[03-12 23:28:06] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 75000):
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.96%  99.01%  97.99%  99.89%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.53%  69.35%  26.67%  67.57%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.77%  57.94%  18.64%  57.74%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.78%  78.07%  28.36%  72.91%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 72.93%  89.42%  42.63%  86.73%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.61%  141.90%  159.83%  103.95%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.63%  45.66%  99.80%  98.74%  86.31%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.11%  26.36%  99.64%  98.22%  80.23%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.12%  55.06%  99.94%  99.18%  90.29%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.48%  91.18%  100.00%  99.72%  99.00%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.88%  39.88%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.32%  30.32%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.38%  44.38%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.04%  58.04%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.74%  99.74%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 58.63%  58.63%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 45.84%  45.84%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 65.52%  65.52%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 85.98%  85.98%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 58.92%
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5892 > best score=0.5874
+[03-12 23:29:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5892
+[03-12 23:29:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 75000):
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.42%  98.78%  99.46%  100.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.49%  68.84%  35.62%  80.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 52.06%  57.32%  25.95%  72.90%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.94%  77.66%  38.74%  84.42%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.17%  89.10%  55.20%  93.21%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.56%  99.64%  141.90%  159.82%  232.87%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.29%  44.30%  99.82%  98.68%  98.37%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.09%  25.04%  99.70%  98.08%  97.55%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.91%  53.59%  99.92%  99.10%  99.02%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.57%  90.75%  100.00%  99.74%  99.81%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.26%  99.26%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.55%  46.55%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.16%  36.16%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.44%  51.44%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.42%  66.42%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.94%  100.94%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 72.79%  72.79%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 62.18%  62.18%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 80.24%  80.24%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.04%  94.04%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:30:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.53%
+[03-12 23:35:06] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 80000):
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.96%  99.01%  97.98%  99.88%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.44%  69.30%  26.55%  67.48%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.56%  57.84%  18.29%  57.55%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 59.89%  78.10%  28.48%  73.10%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.10%  89.44%  42.99%  86.86%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.60%  141.90%  159.83%  103.95%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.62%  45.75%  99.78%  98.66%  86.29%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.03%  26.39%  99.64%  98.02%  80.08%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.18%  55.33%  99.94%  99.12%  90.32%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.51%  91.20%  100.00%  99.82%  99.02%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 39.92%  39.92%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.28%  30.28%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.80%  44.80%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.06%  58.06%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.65%  99.65%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.21%  59.21%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 46.60%  46.60%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.28%  66.28%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.18%  86.18%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.05%
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5905 > best score=0.5892
+[03-12 23:36:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5905
+[03-12 23:36:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 80000):
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.78%  99.46%  100.00%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.40%  68.89%  35.51%  79.81%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.83%  57.42%  25.56%  72.51%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.95%  77.70%  38.77%  84.38%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.36%  89.25%  55.63%  93.19%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.64%  141.90%  159.82%  232.87%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.30%  44.33%  99.80%  98.70%  98.37%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.06%  24.91%  99.68%  98.10%  97.56%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.97%  53.83%  99.92%  99.10%  99.01%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.54%  90.53%  100.00%  99.82%  99.83%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.25%  99.25%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.72%  46.72%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.38%  36.38%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.56%  51.56%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.82%  66.82%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.93%  100.93%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.34%  73.34%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 62.88%  62.88%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 80.74%  80.74%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.86%  93.86%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:37:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.69%
+[03-12 23:42:06] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 85000):
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.95%  99.00%  97.97%  99.88%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.50%  69.24%  26.65%  67.59%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.59%  57.68%  18.34%  57.76%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.11%  78.20%  28.84%  73.29%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.11%  89.41%  43.01%  86.90%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.60%  141.90%  159.83%  103.95%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.68%  45.77%  99.79%  98.87%  86.29%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.14%  26.38%  99.66%  98.40%  80.13%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.20%  55.32%  99.94%  99.24%  90.30%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.48%  91.10%  100.00%  99.78%  99.06%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.90%  97.90%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.08%  40.08%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.52%  30.52%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.78%  44.78%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.14%  58.14%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.64%  99.64%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.23%  59.23%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 46.48%  46.48%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.28%  66.28%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.10%  86.10%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.12%
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5912 > best score=0.5905
+[03-12 23:43:28] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5912
+[03-12 23:43:29] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 85000):
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.78%  99.46%  100.00%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.47%  68.82%  35.54%  80.06%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.95%  57.27%  25.59%  72.97%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 67.04%  77.72%  38.94%  84.46%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.34%  89.25%  55.52%  93.24%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.56%  99.64%  141.90%  159.82%  232.87%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.41%  44.63%  99.86%  98.79%  98.36%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.22%  25.31%  99.80%  98.26%  97.52%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.99%  53.87%  99.90%  99.18%  99.02%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.52%  90.47%  100.00%  99.80%  99.82%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.26%  99.26%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.90%  46.90%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.66%  36.66%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.62%  51.62%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.78%  66.78%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.93%  100.93%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.41%  73.41%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 63.08%  63.08%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 80.62%  80.62%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 94.04%  94.04%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:44:53] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.80%
+[03-12 23:49:07] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 90000):
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.96%  99.00%  97.98%  99.88%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.45%  69.21%  26.57%  67.56%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.54%  57.64%  18.31%  57.68%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.01%  78.16%  28.62%  73.25%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.11%  89.44%  42.91%  87.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.60%  141.90%  159.82%  103.95%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.67%  45.90%  99.79%  98.73%  86.26%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.14%  26.53%  99.66%  98.30%  80.09%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.29%  55.85%  99.92%  99.06%  90.31%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.44%  91.10%  100.00%  99.62%  99.03%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.07%  40.07%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.58%  30.58%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.66%  44.66%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.14%  58.14%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.58%  99.58%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.56%  59.56%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 46.96%  46.96%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.56%  66.56%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.00%  86.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.19%
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5919 > best score=0.5912
+[03-12 23:50:29] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5919
+[03-12 23:50:30] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 90000):
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.78%  99.46%  100.00%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.47%  68.84%  35.55%  80.02%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.92%  57.26%  25.61%  72.90%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.95%  77.63%  38.76%  84.47%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.25%  89.20%  55.32%  93.23%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.64%  141.90%  159.81%  232.87%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.33%  44.49%  99.75%  98.67%  98.40%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.13%  25.14%  99.58%  98.20%  97.59%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.93%  53.87%  99.88%  98.92%  99.04%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.53%  90.50%  100.00%  99.80%  99.84%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.25%  99.25%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 46.87%  46.87%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.56%  36.56%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.60%  51.60%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.96%  66.96%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.93%  100.93%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.89%  73.89%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 63.80%  63.80%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.08%  81.08%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.74%  93.74%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:51:54] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.89%
+[03-12 23:56:07] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 95000):
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.96%  99.01%  97.98%  99.88%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.56%  69.26%  26.76%  67.66%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.69%  57.69%  18.57%  57.80%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.15%  78.24%  28.79%  73.41%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.11%  89.48%  42.92%  86.92%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.59%  141.90%  159.82%  103.95%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.65%  45.82%  99.77%  98.73%  86.29%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.11%  26.45%  99.62%  98.22%  80.15%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.29%  55.96%  99.92%  99.08%  90.19%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.43%  90.99%  100.00%  99.66%  99.08%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.18%  40.18%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.64%  30.64%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.94%  44.94%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.34%  58.34%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.55%  99.55%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.59%  59.59%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 46.82%  46.82%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.84%  66.84%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.06%  86.06%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.24%
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5924 > best score=0.5919
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5924
+[03-12 23:57:30] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 95000):
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.42%  98.78%  99.46%  100.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.47%  68.83%  35.59%  80.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 51.90%  57.24%  25.59%  72.88%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 67.08%  77.72%  39.02%  84.51%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.30%  89.19%  55.47%  93.23%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.63%  141.90%  159.81%  232.87%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.36%  44.54%  99.82%  98.67%  98.43%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.16%  25.15%  99.72%  98.16%  97.62%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 88.07%  54.22%  99.92%  99.08%  99.05%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.49%  90.51%  100.00%  99.62%  99.83%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.25%  99.25%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 47.00%  47.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.82%  36.82%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.92%  51.92%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 66.96%  66.96%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.92%  100.92%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.94%  73.94%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 63.78%  63.78%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.18%  81.18%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.86%  93.86%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-12 23:58:54] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.95%
+[03-13 00:03:08] p92386 (train_TCQE_TFLEX.py:1065) - Validation (step: 100000):
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.95%  99.00%  97.97%  99.88%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.56%  69.27%  26.70%  67.72%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.66%  57.68%  18.48%  57.81%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.17%  78.29%  28.76%  73.46%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.20%  89.48%  43.12%  87.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.59%  141.90%  159.82%  103.95%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.66%  45.76%  99.78%  98.67%  86.44%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.16%  26.38%  99.64%  98.20%  80.41%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.19%  55.58%  99.92%  98.98%  90.29%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.39%  90.98%  100.00%  99.54%  99.04%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.19%  40.19%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.66%  30.66%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.98%  44.98%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.24%  58.24%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.54%  99.54%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.77%  59.77%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 47.14%  47.14%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.74%  66.74%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.00%  86.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.30%
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1069) - current score=0.5930 > best score=0.5924
+[03-13 00:04:30] p92386 (train_TCQE_TFLEX.py:1072) - saving best score 0.5930
+[03-13 00:04:31] p92386 (train_TCQE_TFLEX.py:1083) - Test (step: 100000):
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.78%  99.46%  100.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.55%  68.82%  35.63%  80.19%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 52.01%  57.22%  25.74%  73.08%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 67.13%  77.73%  38.94%  84.71%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.34%  89.22%  55.55%  93.24%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.62%  141.90%  159.81%  232.87%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.32%  44.57%  99.75%  98.54%  98.42%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.11%  25.19%  99.60%  98.04%  97.62%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.95%  54.13%  99.86%  98.78%  99.04%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.47%  90.47%  100.00%  99.58%  99.83%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.26%  99.26%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 47.00%  47.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.72%  36.72%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.78%  51.78%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 67.16%  67.16%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.92%  100.92%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.99%  73.99%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 63.86%  63.86%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.24%  81.24%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.90%  93.90%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.96%
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1097) - Reporting the best performance...
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1098) - Resumed from score 0.5930.
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1099) - Take a look at the performance after resumed.
+[03-13 00:05:55] p92386 (train_TCQE_TFLEX.py:1100) - Test (step: 100000):
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_e     Pe     Pe2     e2i    
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29372   17719    6236    5417   
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.41%  98.78%  99.46%  100.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 61.55%  68.82%  35.63%  80.19%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 52.01%  57.22%  25.74%  73.08%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 67.13%  77.73%  38.94%  84.71%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 79.34%  89.22%  55.55%  93.24%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_t     Pt     aPt     bPt     t2i    
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29547    9706    5000    5000    9841   
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 158.55%  99.62%  141.90%  159.81%  232.87%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 85.32%  44.57%  99.75%  98.54%  98.42%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 80.11%  25.19%  99.60%  98.04%  97.62%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 87.95%  54.13%  99.86%  98.78%  99.04%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.47%  90.47%  100.00%  99.58%  99.83%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ue   e2u    
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.26%  99.26%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 47.00%  47.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 36.72%  36.72%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 51.78%  51.78%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 67.16%  67.16%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - Test    : avg_Ut   t2u    
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 100.92%  100.92%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 73.99%  73.99%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 63.86%  63.86%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 81.24%  81.24%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 93.90%  93.90%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 66.96%
+[03-13 00:07:20] p92386 (train_TCQE_TFLEX.py:1103) - Validation (step: 100000):
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_e     Pe     Pe2     e2i    
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 28700   17695    5752    5253   
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0     
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 98.95%  99.00%  97.97%  99.88%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 54.56%  69.27%  26.70%  67.72%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 44.66%  57.68%  18.48%  57.81%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 60.17%  78.29%  28.76%  73.46%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 73.20%  89.48%  43.12%  87.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_t     Pt     aPt     bPt     t2i    
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer: 29337    9548    5000    5000    9789   
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0       0       0       0     
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 126.32%  99.59%  141.90%  159.82%  103.95%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 82.66%  45.76%  99.78%  98.67%  86.44%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 76.16%  26.38%  99.64%  98.20%  80.41%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 86.19%  55.58%  99.92%  98.98%  90.29%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 97.39%  90.98%  100.00%  99.54%  99.04%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  100.00%  100.00%  100.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ue   e2u    
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 97.89%  97.89%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 40.19%  40.19%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 30.66%  30.66%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 44.98%  44.98%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 58.24%  58.24%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - Valid   : avg_Ut   t2u    
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_quer:  5000    5000   
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - filtered:  0.00%    0     
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MSRR    : 99.54%  99.54%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - MRR     : 59.77%  59.77%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@1  : 47.14%  47.14%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@3  : 66.74%  66.74%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - hits@10 : 86.00%  86.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1348) - num_answ: 100.00%  100.00%  
+[03-13 00:08:43] p92386 (train_TCQE_TFLEX.py:1297) - AVG: 59.30%
